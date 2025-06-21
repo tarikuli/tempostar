@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+
+    <table name="sales_order">
+        <column xsi:type="varchar" name="external_order_reference"
+                nullable="true" length="255" comment="External Order Reference"/>
+    </table>
+
+    <table name="sales_order_grid">
+        <column xsi:type="varchar" name="external_order_reference" nullable="true" length="255"
+                comment="External Order Reference"/>
+    </table>
+
+    <table name="sales_order_address">
+        <column xsi:type="varchar" name="first_nama_kana" nullable="true" length="255" comment="First Name Kana"/>
+        <column xsi:type="varchar" name="last_nama_kana" nullable="true" length="255" comment="Last Name Kana"/>
+    </table>
+
+</schema>

@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+
+<!-- Defines scheduled cron jobs for the TempostarConnector module, including order import and inventory export. -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="tempostar_group">
+        <job instance="Hanesce\TempostarConnector\Cron\OrderImport" method="execute" name="tps_import_orders_tmo_cron">
+            <config_path>tempostar_ftp_section/order_group/order_schedule</config_path>
+        </job>
+        <job instance="Hanesce\TempostarConnector\Cron\ExportInventoryCron" method="execute" name="tps_inventory_export_cron">
+            <config_path>tempostar_ftp_section/inventory_group/inventory_schedule</config_path>
+        </job>
+    </group>
+</config>

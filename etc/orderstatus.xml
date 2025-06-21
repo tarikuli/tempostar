@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/order_statuses.xsd">
+    <order_statuses>
+        <status code="waiting_for_confirmation" label="Waiting for Confirmation"/>
+        <status code="waiting_for_shipment" label="Waiting for Shipment"/>
+        <status code="shipped" label="Shipped"/>
+    </order_statuses>
+    <order_states>
+        <state code="new" status="waiting_for_confirmation" is_default="false"/>
+        <state code="processing" status="waiting_for_shipment" is_default="false"/>
+        <state code="complete" status="shipped" is_default="false"/>
+    </order_states>
+</config>

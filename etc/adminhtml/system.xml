@@ -1,0 +1,176 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="integration" sortOrder="999" translate="label">
+            <label>Integration</label>
+        </tab>
+        <section id="tempostar_ftp_section" sortOrder="1" showInWebsite="1" showInStore="1" showInDefault="1"
+                 translate="label">
+            <label>TEMPOSTAR Connector</label>
+            <tab>integration</tab>
+            <resource>Hanesce_TempostarConnector::config_hanesce_tempostarconnector</resource>
+            <group id="tempostar_ftp_group" sortOrder="1" showInWebsite="1" showInStore="1" showInDefault="1"
+                   translate="label">
+                <label>FTP Connection Setting</label>
+                <field id="enable" type="select" sortOrder="1" showInWebsite="1" showInStore="1" showInDefault="1"
+                       translate="label">
+                    <label>enable</label>
+                    <comment/>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="host" type="text" sortOrder="2" showInWebsite="1" showInStore="1" showInDefault="1"
+                       translate="label">
+                    <label>FTP Host</label>
+                    <validate>validate-no-empty</validate>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                    <comment/>
+                </field>
+
+                <field id="ftp_user_name" translate="label" type="text" sortOrder="3" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>FTP Username</label>
+                    <validate>validate-no-empty</validate>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="ftp_user_pass" translate="label" type='password' sortOrder="4" showInDefault="1"
+                       showInWebsite="1">
+                    <label>FTP Password</label>
+                    <validate>validate-no-empty</validate>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="port" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Port</label>
+                    <validate>required-entry validate-no-empty validate-digits</validate>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+
+            </group>
+
+            <group id="order_group" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Order Import Setting</label>
+                <field id="order_path" translate="label" type="text" sortOrder="1" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>TO-1: Order Import Path</label>
+                    <comment>/order/export/acc/new/</comment>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="order_archive_path" translate="label" type="text" sortOrder="2" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>TO-1: Order Import Archive Path</label>
+                    <comment>/order/export/acc/new/archive/</comment>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="order_update_path" translate="label" type="text" sortOrder="3" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>TO-6: Order Shipping Update Path</label>
+                    <comment>/order/export/acc/ship/</comment>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="order_update_archive_path" translate="label" type="text" sortOrder="4" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>TO-6: Order Shipping Update Archive Path</label>
+                    <comment>/order/export/acc/ship/archive/</comment>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="order_schedule" translate="label comment" type="text" sortOrder="5" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>CRON Schedule</label>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                    <comment>
+                        <![CDATA[
+<pre>
+* * * * *
+| | | | |
+| | | | +---- Day of the Week   (range: 1-7, 1 standing for Monday)
+| | | +------ Month of the Year (range: 1-12)
+| | +-------- Day of the Month  (range: 1-31)
+| +---------- Hour              (range: 0-23)
++------------ Minute            (range: 0-59)
+Example: 0 0 * * * Daily at midnight
+</pre>
+            ]]>
+                    </comment>
+                </field>
+            </group>
+
+            <group id="export_fulfillment_group" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Export Fulfillment </label>
+                <field id="export_fulfillment_path" translate="label" type="text" sortOrder="1" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Export Path </label>
+                    <comment>/order/export/</comment>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="inventory_group" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Inventory Import Export Setting</label>
+                <field id="inventory_path" translate="label" type="text" sortOrder="1" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Inventory import/export</label>
+                    <comment>/stock/****</comment>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="inventory_schedule" translate="label comment" type="text" sortOrder="2" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>CRON Schedule</label>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                    <comment>
+                        <![CDATA[
+<pre>
+* * * * *
+| | | | |
+| | | | +---- Day of the Week   (range: 1-7, 1 standing for Monday)
+| | | +------ Month of the Year (range: 1-12)
+| | +-------- Day of the Month  (range: 1-31)
+| +---------- Hour              (range: 0-23)
++------------ Minute            (range: 0-59)
+Example: 0 0 * * * Daily at midnight
+</pre>
+            ]]>
+                    </comment>
+                </field>
+            </group>
+
+
+
+        </section>
+    </system>
+</config>

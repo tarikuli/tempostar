@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<!-- Provides default configuration values for the TempostarConnector module, such as FTP credentials and paths. -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <tempostar_ftp_section>
+            <tempostar_ftp_group>
+                <enable>0</enable>
+                <host>home547134261.1and1-data.host</host>
+                <ftp_user_name>acc960968130</ftp_user_name>
+                <ftp_user_pass>uw#*eFs5KnGmyqVi</ftp_user_pass>
+                <port>22</port>
+            </tempostar_ftp_group>
+            <import_fulfillment_group>
+                <import_fulfillment_path>/order/export/ecb/ship/</import_fulfillment_path>
+            </import_fulfillment_group>
+            <export_fulfillment_group>
+                <export_fulfillment_path>/order/import/</export_fulfillment_path>
+                <export_fulfillment_schedule>0 0 * * *</export_fulfillment_schedule>
+            </export_fulfillment_group>
+            <inventory_group>
+                <inventory_path>/stock/****</inventory_path>
+                <inventory_schedule>0 0 * * *</inventory_schedule>
+            </inventory_group>
+        </tempostar_ftp_section>
+    </default>
+</config>
