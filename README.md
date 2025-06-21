@@ -39,11 +39,11 @@ This module provides scheduled and manual import/export of order and inventory d
 
 ## Installation
 1. **Copy the module files**
-   - Place the `Hanesce/TempostarConnector` directory into `app/code/Hanesce/` in your Magento installation.
+   - Place the `Tarikul/TempostarConnector` directory into `app/code/Tarikul/` in your Magento installation.
 
 2. **Enable the module**
    ```zsh
-   bin/magento module:enable Hanesce_TempostarConnector
+   bin/magento module:enable Tarikul_TempostarConnector
    bin/magento setup:upgrade
    bin/magento setup:di:compile
    bin/magento cache:flush
@@ -83,10 +83,10 @@ This module provides scheduled and manual import/export of order and inventory d
 ## Uninstallation
 1. Disable the module:
    ```zsh
-   bin/magento module:disable Hanesce_TempostarConnector
+   bin/magento module:disable Tarikul_TempostarConnector
    bin/magento setup:upgrade
    ```
-2. Remove the module files from `app/code/Hanesce/TempostarConnector`.
+2. Remove the module files from `app/code/Tarikul/TempostarConnector`.
 
 ## Support
 For issues or feature requests, please contact the module maintainer or your development team.
